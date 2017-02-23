@@ -1,20 +1,38 @@
+//canvas size variable (scX & csY)
+//csX = window.innerWidth;
+//csY = window.innerHeight;
+
+csX = 1100;
+csY = 900;
 
 
 function setup() {
-    createCanvas(900, 600);
+    createCanvas(csX, csY);
     noCursor();
 }
 
 function draw() {
-    background(235);
-    noFill()
-    strokeWeight(300);
-    stroke(0, 200);
-    rect(0,0, width, height);
-    bubble.display();
-    bubble.move();
-    
   
+    background(235);
+    
+    //Text
+    textSize(25);
+    noStroke();
+    fill(50);
+    text("Don't drag me out of the Light", 950, 750);
+    
+    //Frame
+    noFill();
+    strokeWeight(500);
+    stroke(0, 255);
+    rect(0,0, width, height);
+    
+    //funct. objects
+    bubble.display();
+    bubble.move(); 
+    
+    //if(mouseX = )
+
 }
 
 var bubble = {
@@ -32,14 +50,14 @@ var bubble = {
         this.y = mouseY;
         this.x = this.x + random(-2, 2);
         this.y = this.y + random(-2, 2);
-        if(this.x >= 750 && this.x <= 900) {
-            this.x = mouseX -300;
-        } if(this.x <= 150 && this.x >= 0) {
-          this.x = mouseX +300;  
-        } if(this.y <= 150 && this.y >= 0) {
-            this.y = mouseY +250;
-        } if(this.y >= 450 && this.y <= 600) {
-            this.y = mouseY -250; 
+        if(this.x >= csX -250) {
+            this.x = csX -550;
+        } else if(this.x <= csX -850) {
+          this.x = csX -550;  
+        } if(this.y <= 250) {
+            this.y = csY -450;
+        } if(this.y >= 650) {
+            this.y = csY -450; 
         }
     }
 }
